@@ -1,0 +1,54 @@
+<form [formGroup]="userForm" *ngIf="newUser" (ngSubmit)="signUp()">
+  <h3>New User Signup</h3>
+  <button  mat-button type="button" class="indigo full-width" (click)="toggleForm()" name="button">Already registered?</button>
+  <hr>
+  <mat-form-field class="full-width">
+  <input matInput placeholder="Email" type="email" id="email" class="input"
+         formControlName="email" required >
+  </mat-form-field>
+   <div class="sm-text is-danger" *ngIf="formErrors.email">
+     {{ formErrors.email }}
+   </div>
+   <br>
+   <mat-form-field class="full-width">
+   <input matInput placeholder="Password" type="password" id="password"
+   formControlName="password" required>
+   </mat-form-field>
+   <div *ngIf="formErrors.password" class="sm-text is-danger">
+     {{formErrors.password}}
+   </div>
+   <div *ngIf="userForm.valid" class="sm-text is-succes">
+     Form data is valid.
+   </div>
+   <button mat-button type="submit"
+   name="button" class="success full-width"
+   [disabled]="!userForm.valid" >Sign up</button>
+</form>
+
+<form *ngIf="!newUser" [formGroup]="userForm" (ngSubmit)="logIn()">
+
+  <h3>Login User</h3>
+<button  mat-button type="button" class="indigo full-width" name="button" (click)="toggleForm()">New USER?</button>
+  <hr>
+  <mat-form-field class="full-width">
+  <input matInput placeholder="Email" type="email" id="email" class="input"
+         formControlName="email" required >
+  </mat-form-field>
+   <div class="sm-text is-danger" *ngIf="formErrors.email">
+     {{ formErrors.email }}
+   </div>
+   <br>
+   <mat-form-field class="full-width">
+   <input placeholder="Password" matInput type="password" id="password"
+   formControlName="password" required>
+   </mat-form-field>
+   <div *ngIf="formErrors.password" class="sm-text is-danger">
+     {{formErrors.password}}
+   </div>
+   <div *ngIf="userForm.valid" class="sm-text  is-succes">
+     Form data is valid.
+   </div>
+   <button  mat-button type="submit"
+   name="button" class="success full-width"
+   [disabled]="!userForm.valid" >Login</button>
+</form>

@@ -1,0 +1,34 @@
+.spacer{
+  flex: 1 1 auto;
+}
+
+.nav-bar-first{
+  background: #3f51b5;
+  .brand{
+    max-width: 200px;
+    text-align: center;
+    a{
+      color:#fff;
+      text-decoration: none;
+    }
+  }
+  .links{
+    a{
+      color:#fff;
+      font-size: 14px;
+      text-decoration: none;
+    }
+  }
+}
+.category-links{
+  font-size: 14px;
+  ul{
+    li{
+      list-style: none;
+      display: inline-block;
+      a{
+        font-size: 14px;
+      }
+    }
+  }
+}

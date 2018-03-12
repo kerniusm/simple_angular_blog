@@ -1,0 +1,18 @@
+<mat-card>
+  <h4>post details</h4>
+  <form [formGroup]="postDetailsForm" (ngSubmit)="savepostDetails()" >
+    <mat-form-field class="full-width">
+      <input matInput [ngModel]="post?.title" type="text" formControlName="title" placeholder="Title">
+      <div class="sm-text is-danger" *ngIf="detailsErrors.title">
+        {{ detailsErrors.title }}
+      </div>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <textarea matInput  [ngModel]="post?.description" formControlName="description" placeholder="Description"></textarea>
+      <div class="sm-text is-danger" *ngIf="detailsErrors.descriptiontitle">
+        {{ detailsErrors.description }}
+      </div>
+    </mat-form-field>
+    <button mat-button class="success" type="submit" name="button" [disabled]="!postDetailsForm.valid">Save</button>
+  </form>
+</mat-card>

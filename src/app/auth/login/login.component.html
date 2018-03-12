@@ -1,0 +1,17 @@
+<mat-card *ngIf="!(auth.user | async); else alreadyLoggedIn" class="login-form">
+  <h3>Login with social account</h3>
+  <button mat-button class="full-width btn-google" (click)="signInWithGoogle()" type="button" name="button">
+    Connect via Google+
+  </button>
+  <button mat-button class="full-width btn-facebook" (click)="signInWithGoogle()" type="button" name="button">
+    Connect via Facebook
+  </button>
+  <hr>
+  <user-form></user-form>
+</mat-card>
+
+<ng-template #alreadyLoggedIn>
+  <p>
+    Already logged in!
+  </p>
+</ng-template>

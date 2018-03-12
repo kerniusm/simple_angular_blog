@@ -1,0 +1,6 @@
+<div>
+<span *ngIf="data.action === 'success'" class="success-alert"><i class="material-icons">check_circle</i> </span>
+<span *ngIf="data.action === 'error'" class="error-alert"><i class="material-icons">error</i> </span>
+<span *ngIf="data.action === 'info'" class="info-alert"><i class="material-icons">info</i> </span>
+<span class="message-notify">{{ data.message }}</span>
+</div>

@@ -1,1 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.cdk-overlay-pane{
+  position: absolute !important;
+  right: 10px;
+  top: 80px;
+}
+body{
+  margin: 0 auto;
+}
+.full-width{
+  width: 100%;
+}
+.sm-text{
+  font-size: 12px;
+}
+.is-danger{
+  color:red;
+}
+.is-success{
+  color:green;
+}
+.success{
+  background: #4CAF50;
+  color:#fff !important;
+  &:disabled{
+    background: #A5D6A7;
+  }
+}
+.danger{
+  background: #F44336;
+  color:#fff !important;
+  &:disabled{
+    background: #EF9A9A;
+  }
+}
+.indigo{
+  background: #3F51B5;
+  color:#fff !important;
+}
+.content{
+  margin-left: 300px;
+  padding: 20px 10px;
+}

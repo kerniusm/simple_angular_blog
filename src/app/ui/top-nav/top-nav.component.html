@@ -1,0 +1,20 @@
+<mat-toolbar >
+  <mat-toolbar-row class="nav-bar-first">
+   <div class="brand">
+     <a routerLink="/">Blog</a>
+   </div>
+   <div class="spacer"></div>
+   <div class="links">
+     <a routerLink="/login" *ngIf="!isLoggedIn">Login</a>
+     <a routerLink="/" (click)="signOut()" *ngIf="isLoggedIn">Logout</a>
+   </div>
+ </mat-toolbar-row>
+ <mat-toolbar-row>
+   <div class="category-links">
+     <ul>
+       <li>Home</li>
+       <li>JavaScript</li>
+     </ul>
+   </div>
+ </mat-toolbar-row>
+</mat-toolbar>

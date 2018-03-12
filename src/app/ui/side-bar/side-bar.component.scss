@@ -1,0 +1,25 @@
+:host{
+  width: 300px;
+  height: 100%;
+  position: fixed;
+  top: 130px;
+  left: 0px;
+  background: #fff;
+  border-right: 1px solid #ccc;
+}
+ul{
+  padding: 0;
+  li{
+    list-style: none;
+    height: 60px;
+    line-height: 60px;
+
+    border-bottom: 1px solid #ccc;
+    a{
+      display: block;
+      padding-left: 20px;
+      background: #ccc;
+      color:#fff;
+    }
+  }
+}
