@@ -15,7 +15,8 @@ export class NotifyService {
     }
     this.snackBar.openFromComponent(NotifyComponent,{
       duration: 4000,
-      data: data
+      data: data,
+      panelClass: ['right-side-snack']
     });
   }
 }

@@ -2,9 +2,10 @@
   width: 300px;
   height: 100%;
   position: fixed;
-  top: 130px;
+  top: 60px;
   left: 0px;
-  background: #fff;
+  z-index: 9;
+  background: #1a212c;
   border-right: 1px solid #ccc;
 }
 ul{
@@ -14,12 +15,13 @@ ul{
     height: 60px;
     line-height: 60px;
 
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #373f4d;
     a{
       display: block;
       padding-left: 20px;
-      background: #ccc;
-      color:#fff;
+      background: #272f3d;
+      text-decoration: none;
+      color:#ccc;
     }
   }
 }

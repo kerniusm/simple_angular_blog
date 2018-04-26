@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import {FlexLayoutModule} from '@angular/flex-layout';
+
 import { AppRoutingModule } from './app-routing.module';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -22,13 +24,23 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
-
+import {MatPaginatorModule,MatSortModule} from '@angular/material';
+import {MatMenuModule} from '@angular/material/menu';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatSelectModule} from '@angular/material/select';
+
+import { TinyMceModule,tinymceDefaultSettings } from 'angular-tinymce';
+import {  } from 'angular-tinymce';
+
 //CORE
 import {AuthGuard} from './core/auth.guard';
 import {AuthService} from './core/auth.service';
+import {ValidationService} from './core/validation.service';
 import {AdminGuard} from './core/admin.guard';
 import {NotifyService} from './core/notify.service';
+import {CategoriesService} from './admin/categories/shared/categories.service';
+import {PostsService} from './admin/posts/shared/posts.service';
 
 import { AppComponent } from './app.component';
 
@@ -44,6 +56,8 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { SideBarComponent } from './ui/side-bar/side-bar.component';
 import { CategoriesComponent } from './admin/categories/categories.component';
 import { CategoryComponent } from './admin/categories/category/category.component';
+import { SinglePostComponent } from './single-post/single-post.component';
+import { CollectionComponent } from './collection/collection.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +71,9 @@ import { CategoryComponent } from './admin/categories/category/category.componen
     DashboardComponent,
     SideBarComponent,
     CategoriesComponent,
-    CategoryComponent
+    CategoryComponent,
+    SinglePostComponent,
+    CollectionComponent
   ],
   entryComponents:[
     NotifyComponent
@@ -79,13 +95,23 @@ import { CategoryComponent } from './admin/categories/category/category.componen
     MatToolbarModule,
     MatIconModule,
     MatTableModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatSlideToggleModule,
+    MatSelectModule,
+    MatPaginatorModule,
+    MatSortModule,
+    TinyMceModule.forRoot(tinymceDefaultSettings()),
+    FlexLayoutModule,
+    MatMenuModule
   ],
   providers: [
     AuthGuard,
+    ValidationService,
     AdminGuard,
     AuthService,
-    NotifyService],
+    NotifyService,
+    CategoriesService,
+    PostsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { NotifyService } from '../core/notify.service';
+
+import { Observable } from 'rxjs/Observable';
+
+import { PostsService } from '../admin/posts/shared/posts.service';
+import { Post } from '../admin/posts/shared/post';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,13 +12,13 @@ import { NotifyService } from '../core/notify.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private notify:NotifyService) { }
+  posts: Observable<Post[]>;
+  constructor(private pS: PostsService) { }
 
   ngOnInit() {
+    this.posts = this.pS.getPostsSnapshot(10);
   }
 
-  openSnackBar(){
-    this.notify.openSnackBar('message', 'success');
-  }
+
 
 }

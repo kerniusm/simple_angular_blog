@@ -1,3 +1,18 @@
-<p>
-  <button (click)="openSnackBar()">Show snack-bar</button>
-</p>
+<div class="main-container"
+fxLayout="row"
+fxLayout.xs="column"
+fxFlexFill
+  >
+  <div class="posts" fxFlex="66" fxFlex.xs="100">
+    <mat-card *ngFor="let post of posts | async">
+      <h1><a routerLink="post/{{post.slug}}">{{post.title}}</a></h1>
+      <img src="{{post.image_url}}" alt="modern javascript">
+      <p>{{post.short_description}}</p>
+    </mat-card>
+  </div>
+  <div class="section" fxFlex="33" fxFlex.xs="100">
+    <mat-card>
+
+    </mat-card>
+  </div>
+</div>

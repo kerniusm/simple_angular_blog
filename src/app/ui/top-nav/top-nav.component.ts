@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../core/auth.service';
+import {CategoriesService } from '../../admin/categories/shared/categories.service';
 @Component({
   selector: 'top-nav',
   templateUrl: './top-nav.component.html',
@@ -7,7 +8,8 @@ import { AuthService } from '../../core/auth.service';
 })
 export class TopNavComponent implements OnInit {
   isLoggedIn:boolean = false;
-  constructor(private auth: AuthService) {
+  categories = [];
+  constructor(private auth: AuthService, private cS:CategoriesService) {
     auth.user$.subscribe(user => {
       if(user){
         this.isLoggedIn = true;
@@ -18,6 +20,13 @@ export class TopNavComponent implements OnInit {
   }
 
   ngOnInit() {
+    let data = [];
+    console.log(data);
+    this.cS.getMainCategories().subscribe(categories =>
+      {
+        this.categories = categories
+      }
+    )
   }
 
   signOut(){

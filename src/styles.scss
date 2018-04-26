@@ -1,11 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-.cdk-overlay-pane{
-  position: absolute !important;
-  right: 10px;
-  top: 80px;
-}
+
 body{
   margin: 0 auto;
 }
@@ -39,7 +35,38 @@ body{
   background: #3F51B5;
   color:#fff !important;
 }
+.main{
+  margin-top: 60px;
+}
 .content{
   margin-left: 300px;
   padding: 20px 10px;
+}
+.right-side-snack{
+  position: absolute !important;
+  right: 10px;
+  top: 80px;
+}
+.main-container{
+  .posts{
+    margin: 20px 10px !important;
+    a{
+      text-decoration: none;
+      color:#333;
+      &:hover{
+        color:#666;
+        text-decoration: underline;
+      }
+    }
+    img{
+      width: 100%;
+    }
+  }
+  .section{
+    margin-top: 20px;
+    margin-right:10px;
+  }
+}
+.text-center{
+  text-align: center;
 }

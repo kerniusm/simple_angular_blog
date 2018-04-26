@@ -25,7 +25,7 @@ canActivate(
       tap((loggedIn) => {
         if (!loggedIn) {
           console.log('access denied');
-          this.notify.openSnackBar('You must be logged in!', 'success');
+          this.notify.openSnackBar('You must be logged in!', 'error');
           this.router.navigate(['/login']);
         }
       }),

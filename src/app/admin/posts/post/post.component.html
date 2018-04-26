@@ -1,18 +1,52 @@
 <mat-card>
-  <h4>post details</h4>
-  <form [formGroup]="postDetailsForm" (ngSubmit)="savepostDetails()" >
+  <h4>Post details</h4>
+  <form [formGroup]="postForm" (ngSubmit)="savePostFrom()" >
+
+    <mat-form-field class="full-width">
+      <input matInput [ngModel]="post?.image_url" type="text" formControlName="image_url" placeholder="Image url">
+    </mat-form-field>
     <mat-form-field class="full-width">
       <input matInput [ngModel]="post?.title" type="text" formControlName="title" placeholder="Title">
-      <div class="sm-text is-danger" *ngIf="detailsErrors.title">
-        {{ detailsErrors.title }}
+      <div class="sm-text is-danger" *ngIf="postErrors.title">
+        {{ postErrors.title }}
       </div>
     </mat-form-field>
     <mat-form-field class="full-width">
-      <textarea matInput  [ngModel]="post?.description" formControlName="description" placeholder="Description"></textarea>
-      <div class="sm-text is-danger" *ngIf="detailsErrors.descriptiontitle">
-        {{ detailsErrors.description }}
+      <input matInput [ngModel]="post?.short_description" type="text" formControlName="short_description" placeholder="Short description">
+      <div class="sm-text is-danger" *ngIf="postErrors.short_description">
+        {{ postErrors.short_description }}
       </div>
     </mat-form-field>
-    <button mat-button class="success" type="submit" name="button" [disabled]="!postDetailsForm.valid">Save</button>
+    <div class="full-width m-b-40">
+      <angular-tinymce [settings]="tinyMCESettings" [(ngModel)]='post.description' formControlName="description"></angular-tinymce>
+      <!-- <textarea matInput  [ngModel]="post?.description"  placeholder="Description"></textarea> -->
+      <div class="sm-text is-danger" *ngIf="postErrors.description">
+        {{ postErrors.description }}
+      </div>
+    </div>
+    <mat-form-field class="full-width">
+      <input matInput [ngModel]="post?.slug" type="text" formControlName="slug" placeholder="Slug">
+      <div class="sm-text is-danger" *ngIf="postErrors.slug">
+        {{ postErrors.slug }}
+      </div>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-select formControlName="category" placeholder="Parent category" [(ngModel)]="post.category">
+        <mat-option  value="">
+          No category
+        </mat-option>
+        <mat-option *ngFor="let category of categories" value="{{category.id}}">
+          {{category.title}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="full-width m-b-40">
+      <mat-slide-toggle [ngModel]="post?.visible" formControlName="visible"
+         color="primary">
+       Visible?
+      </mat-slide-toggle>
+    </div>
+    <button mat-button class="success" type="submit" name="button" [disabled]="!postForm.valid">Save</button>
   </form>
 </mat-card>

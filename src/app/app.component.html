@@ -1,6 +1,6 @@
 <top-nav></top-nav>
 <side-bar *ngIf="isAdmin()" ></side-bar>
-<div [ngClass]="{
+<div class="main" [ngClass]="{
     'content': isAdmin()
   }">
   <router-outlet></router-outlet>

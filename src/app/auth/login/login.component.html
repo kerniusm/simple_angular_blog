@@ -1,4 +1,4 @@
-<mat-card *ngIf="!(auth.user | async); else alreadyLoggedIn" class="login-form">
+<mat-card *ngIf="!(auth.user$ | async); else alreadyLoggedIn" class="login-form">
   <h3>Login with social account</h3>
   <button mat-button class="full-width btn-google" (click)="signInWithGoogle()" type="button" name="button">
     Connect via Google+
